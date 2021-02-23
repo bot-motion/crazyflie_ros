@@ -1,4 +1,5 @@
-<package>
+<?xml version='1.0' encoding='utf-8'?>
+<package format="2">
   <name>crazyflie</name>
   <version>0.0.1</version>
   <description>ROS integration for Crazyflie Nano Quadcopter from Bitcraze</description>
@@ -12,18 +13,15 @@
 
   <author email="whoenig@usc.edu">Wolfgang Hoenig</author>
 
-  <!-- Dependencies which this package needs to build itself. -->
-  <buildtool_depend>catkin</buildtool_depend>
+  
+  <buildtool_depend>ament_cmake</buildtool_depend>
 
-  <!-- Dependencies needed after this package is compiled. -->
-  <run_depend>crazyflie_cpp</run_depend>
-  <run_depend>crazyflie_driver</run_depend>
-  <run_depend>crazyflie_description</run_depend>
-  <run_depend>crazyflie_controller</run_depend>
-  <run_depend>crazyflie_demo</run_depend>
-  <run_depend>crazyflie_tools</run_depend>
+  
+  <exec_depend>crazyflie_cpp</exec_depend>
+  <exec_depend>crazyflie_driver</exec_depend>
+  <exec_depend>crazyflie_description</exec_depend>
+  <exec_depend>crazyflie_controller</exec_depend>
+  <exec_depend>crazyflie_demo</exec_depend>
+  <exec_depend>crazyflie_tools</exec_depend>
 
-  <export>
-    <metapackage/>
-  </export>
 </package>

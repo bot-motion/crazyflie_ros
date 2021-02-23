@@ -1,5 +1,5 @@
-<?xml version="1.0"?>
-<package>
+<?xml version='1.0' encoding='utf-8'?>
+<package format="2">
   <name>crazyflie_controller</name>
   <version>0.0.1</version>
   <description>Controller to fly a Crazyflie in a space with location feedback (such as motion capture).</description>
@@ -13,10 +13,16 @@
 
   <author email="whoenig@usc.edu">Wolfgang Hoenig</author>
 
-  <buildtool_depend>catkin</buildtool_depend>
+  <buildtool_depend>ament_cmake</buildtool_depend>
   <build_depend>std_msgs</build_depend>
   <build_depend>tf</build_depend>
   
-  <run_depend>std_msgs</run_depend>
-  <run_depend>tf</run_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>tf</exec_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
 </package>

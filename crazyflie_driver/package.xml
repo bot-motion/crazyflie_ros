@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version='1.0' encoding='utf-8'?>
 <package format="3">
   <name>crazyflie_driver</name>
   <version>0.0.1</version>
@@ -34,4 +34,8 @@
   </export>
 
   <member_of_group>rosidl_interface_packages</member_of_group>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
 </package>

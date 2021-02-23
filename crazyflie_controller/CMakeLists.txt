@@ -1,10 +1,13 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.5.0)
 project(crazyflie_controller)
 
-find_package(catkin REQUIRED COMPONENTS
-  std_msgs
-  tf
-)
+find_package(std_msgs)
+find_package(tf2)
+
+find_package(rclcpp REQUIRED)
+find_package(ament_cmake REQUIRED)
+
+
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -75,12 +78,6 @@ find_package(catkin REQUIRED COMPONENTS
 ## LIBRARIES: libraries you create in this project that dependent projects also need
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
-catkin_package(
-#  INCLUDE_DIRS include
-#  LIBRARIES crazyflie_controller
-#  CATKIN_DEPENDS other_catkin_pkg
-#  DEPENDS system_lib
-)
 
 ###########
 ## Build ##
@@ -88,9 +85,10 @@ catkin_package(
 
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
-include_directories(
-  ${catkin_INCLUDE_DIRS}
-)
+
+set(INCLUDE_DIRS ${rclcpp_INCLUDE_DIRS} ${ament_cmake_INCLUDE_DIRS})
+include_directories(${INCLUDE_DIRS})
+
 
 ## Declare a cpp library
 # add_library(crazyflie_controller
