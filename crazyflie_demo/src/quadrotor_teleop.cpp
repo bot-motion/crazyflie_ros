@@ -28,17 +28,17 @@
 //=================================================================================================
 
 
-#include <ros/ros.h>
-#include <sensor_msgs/Joy.h>
-#include <geometry_msgs/Twist.h>
+#include <rclcpp/rclcpp.hpp>
+#include <sensor_msgs/msg/joy.hpp>
+#include <geometry_msgs/msg/twist.hpp>
 
 class Teleop
 {
 private:
-  ros::NodeHandle node_handle_;
-  ros::Subscriber joy_subscriber_;
+  rclcpp::NodeHandle node_handle_;
+  rclcpp::Subscriber joy_subscriber_;
 
-  ros::Publisher velocity_publisher_;
+  rclcpp::Publisher velocity_publisher_;
   geometry_msgs::Twist velocity_;
 
   struct Axis
@@ -65,7 +65,7 @@ private:
 public:
   Teleop()
   {
-    ros::NodeHandle params("~");
+    rclcpp::NodeHandle params("~");
 
     params.param<int>("x_axis", axes_.x.axis, 4);
     params.param<int>("y_axis", axes_.y.axis, 3);
@@ -91,11 +91,11 @@ public:
 
   void execute()
   {
-    ros::Rate loop_rate(frequency_);
-    while (ros::ok()) {
+    rclcpp::Rate loop_rate(frequency_);
+    while (rclcpp::ok()) {
       velocity_publisher_.publish(velocity_);
 
-      ros::spinOnce();
+      rclcpp::spinOnce();
       loop_rate.sleep();
     }
   }
@@ -146,7 +146,7 @@ public:
 
 int main(int argc, char **argv)
 {
-  ros::init(argc, argv, "quadrotor_teleop");
+  rclcpp::init(argc, argv, "quadrotor_teleop");
 
   Teleop teleop;
   teleop.execute();
